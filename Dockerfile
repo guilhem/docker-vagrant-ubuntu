@@ -1,9 +1,7 @@
 FROM ubuntu
 MAINTAINER Guilhem Lettron "guilhem@lettron.fr"
 
-RUN apt-get update
-RUN apt-get install -y ssh
-RUN apt-get clean
+RUN apt-get update && apt-get install -y ssh && apt-get clean
 
 RUN mkdir /var/run/sshd
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
