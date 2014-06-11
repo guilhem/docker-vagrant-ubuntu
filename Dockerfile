@@ -18,7 +18,7 @@ RUN echo -n 'vagrant:vagrant' | chpasswd
 RUN touch /home/vagrant/.hushlogin
 
 # Enable passwordless sudo for vagrant
-RUN echo "vagrant ALL= NOPASSWD: ALL" > /etc/sudoers.d/vagrant
+RUN mkdir -p /etc/sudoers.d && echo "vagrant ALL= NOPASSWD: ALL" > /etc/sudoers.d/vagrant
 
 CMD ["/usr/sbin/sshd", "-D", "-e"]
 EXPOSE 22
