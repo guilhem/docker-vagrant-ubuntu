@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:wheezy
 MAINTAINER Guilhem Lettron "guilhem@lettron.fr"
 
 RUN apt-get update && apt-get install -y ssh && apt-get clean
