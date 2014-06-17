@@ -18,6 +18,7 @@ RUN echo -n 'vagrant:vagrant' | chpasswd
 RUN touch /home/vagrant/.hushlogin
 
 # Enable passwordless sudo for vagrant
+RUN apt-get update && apt-get install -y sudo && apt-get clean
 RUN mkdir -p /etc/sudoers.d && echo "vagrant ALL= NOPASSWD: ALL" > /etc/sudoers.d/vagrant && chmod 0440 /etc/sudoers.d/vagrant
 
 CMD ["/usr/sbin/sshd", "-D", "-e"]
