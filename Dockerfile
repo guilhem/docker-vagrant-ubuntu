@@ -1,6 +1,7 @@
 FROM ubuntu:10.04
 MAINTAINER Guilhem Lettron "guilhem@lettron.fr"
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y ssh && apt-get clean
 
 RUN mkdir /var/run/sshd
